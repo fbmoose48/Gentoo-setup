@@ -38,3 +38,7 @@ emerge --ask net-libs/libmicrohttpd cmake hwloc msr-tools numactl
 
 # Add user permissions
 usermod -a -G adm,lpadmin,lp,wheel,audio,video $USER
+
+# Update system
+emerge --sync
+emerge -uDU --keep-going --with-bdeps=y @world
