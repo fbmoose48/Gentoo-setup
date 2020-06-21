@@ -18,7 +18,7 @@ rc-update add wpa_supplicantd default
 emerge x11-base/xorg-server xfce-base/xfce4-meta xfce-extra/xfce4-notifyd x11-misc/lightdm xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
 
 # Basic tools
-emerge --ask sudo htop terminator neofetch xarchiver firefox geany media-fonts/powerline-symbols
+emerge --ask sudo htop terminator neofetch xarchiver firefox geany media-fonts/powerline-symbols openvpn
 
 # Audio
 emerge --ask media-sound/alsa-utils media-sound/pavucontrol paprefs
