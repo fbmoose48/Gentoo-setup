@@ -17,6 +17,11 @@ rc-update add wpa_supplicantd default
 # xfce GUI
 emerge x11-base/xorg-server xfce-base/xfce4-meta xfce-extra/xfce4-notifyd x11-misc/lightdm xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
 
+#Edit /etc/portage/package.use
+echo "media-plugins/alsa-plugins pulseaudio" >> /etc/portage/package.use/alsa-plugins
+echo "media-libs/libvpx postproc" >> /etc/portage/package.use/libvpx
+echo "www-client/w3m imlib" >> /etc/portage/package.use/w3m
+
 # Basic tools
 emerge --ask sudo htop terminator neofetch xarchiver firefox geany media-fonts/powerline-symbols openvpn
 
