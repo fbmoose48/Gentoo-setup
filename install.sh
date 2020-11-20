@@ -28,6 +28,10 @@ rc-service NetworkManager start
 # X Server
 emerge x11-base/xorg-server x11-misc/lightdm
 
+# Start LightDM on boot
+rc-update add dbus default
+rc-update add xdm default
+
 # DWM
 emerge --ask x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 
