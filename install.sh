@@ -40,7 +40,7 @@ echo "media-libs/libvpx postproc" >> /etc/portage/package.use/libvpx
 echo "www-client/w3m imlib" >> /etc/portage/package.use/w3m
 
 # Basic tools
-emerge --ask sudo htop terminator neofetch xarchiver firefox geany media-fonts/powerline-symbols openvpn
+emerge --ask sudo htop terminator neofetch xarchiver firefox geany media-fonts/powerline-symbols openvpn dev-vcs/git
 
 # Audio
 emerge --ask media-sound/alsa-utils media-sound/pavucontrol paprefs
