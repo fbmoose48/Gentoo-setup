@@ -6,16 +6,33 @@ emerge --ask sys-fs/e2fsprogs sys-apps/mlocate sys-process/cronie app-admin/logr
 emerge --ask --noreplace net-misc/netifrc
 
 # Wireless tools
-emerge --ask net-wireless/iw net-misc/dhcpcd dhcpcd-ui wpa_supplicant
+emerge --ask net-wireless/iw net-misc/dhcpcd dhcpcd-ui wpa_supplicant net-misc/networkmanager net-vpn/networkmanager-openvpn
+
+# remove any netifrc scripts from controlling network interfaces
+for x in /etc/runlevels/default/net.* ; do rc-update del $(basename $x) default ; rc-service --ifstarted $(basename $x) stop; done
+
+# Network mangement with NetworkManager
+rc-update add NetworkManager default
+rc-service NetworkManager start
 
 # Network Management with dhcpcd
-rc-update add dhcpcd default
-/etc/init.d/dhcpcd start 
-rc-update add wpa_supplicantd default
-/etc/init.d/wpa_supplicant start
+#rc-update add dhcpcd default
+#/etc/init.d/dhcpcd start 
+#rc-update add wpa_supplicantd default
+#/etc/init.d/wpa_supplicant start
+
+# Remove network management with dhcpcd
+#rc-update del dhcpcd default
+#rc-update del wpa_supplicant default
+
+# X Server
+emerge x11-base/xorg-server x11-misc/lightdm
+
+# DWM
+emerge --ask x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 
 # xfce GUI
-emerge x11-base/xorg-server xfce-base/xfce4-meta xfce-extra/xfce4-notifyd x11-misc/lightdm xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
+xfce-base/xfce4-meta xfce-extra/xfce4-notifyd xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
 
 #Edit /etc/portage/package.use
 echo "media-plugins/alsa-plugins pulseaudio" >> /etc/portage/package.use/alsa-plugins
