@@ -26,17 +26,20 @@ rc-service NetworkManager start
 #rc-update del wpa_supplicant default
 
 # X Server
-emerge x11-base/xorg-server x11-misc/lightdm
+emerge x11-base/xorg-server 
+
+# LightDM
+#x11-misc/lightdm
 
 # Start LightDM on boot
-rc-update add dbus default
-rc-update add xdm default
+#rc-update add dbus default
+#rc-update add xdm default
 
 # DWM
 emerge --ask x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 
 # xfce GUI
-xfce-base/xfce4-meta xfce-extra/xfce4-notifyd xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
+#xfce-base/xfce4-meta xfce-extra/xfce4-notifyd xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
 
 #Edit /etc/portage/package.use
 echo "media-plugins/alsa-plugins pulseaudio" >> /etc/portage/package.use/alsa-plugins
@@ -44,7 +47,7 @@ echo "media-libs/libvpx postproc" >> /etc/portage/package.use/libvpx
 echo "www-client/w3m imlib" >> /etc/portage/package.use/w3m
 
 # Basic tools
-emerge --ask sudo htop terminator neofetch xarchiver firefox geany media-fonts/powerline-symbols openvpn dev-vcs/git
+emerge --ask sudo htop terminator lxterminal neofetch spacefm xarchiver firefox geany media-fonts/powerline-symbols openvpn dev-vcs/git
 
 # Audio
 emerge --ask media-sound/alsa-utils media-sound/pavucontrol paprefs
