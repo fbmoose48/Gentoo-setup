@@ -38,6 +38,9 @@ emerge x11-base/xorg-server
 # DWM
 emerge --ask x11-libs/libXft media-fonts/hack x11-misc/stalonetray x11-misc/picom x11-apps/xrandr x11-apps/xsetroot x11-misc/nitrogen gnome-extra/nm-applet
 
+# Fix locale for dmenu
+echo "LC_ALL=en_US.UTF-8" >> /etc/env.d/02locale
+
 # xfce GUI
 #xfce-base/xfce4-meta xfce-extra/xfce4-notifyd xfce-extra/thunar-archive-plugin xfce4-pulseaudio-plugin xfdashboard xfce4-taskmanager xfce4-weather-plugin
 
