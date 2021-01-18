@@ -65,6 +65,11 @@ emerge --ask net-libs/libmicrohttpd cmake hwloc msr-tools numactl
 # Add user permissions
 usermod -a -G adm,lpadmin,lp,wheel,audio,video $USER
 
+# Remove passwd restriction (may need to #comment out existing 'password' lines)
+echo "#password	required	pam_cracklib.so difok=2 minlen=8 dcredit=2 ocredit=2 retry=3" >> /etc/pam.d/passwd
+echo "#password	required	pam_unix.so sha512 shadow use_authtok" >> /etc/pam.d/passwd
+echo "password	required	pam_unix.so sha512 shadow nullok" >> /etc/pam.d/passwd
+
 # Update system
 emerge --sync
 emerge -uDU --keep-going --with-bdeps=y @world
